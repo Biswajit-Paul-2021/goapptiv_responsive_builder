@@ -21,7 +21,7 @@ class ResponsiveBuilder extends StatelessWidget {
               SizingInformation(
                 orientation,
                 Size(constraints.maxWidth, constraints.maxHeight),
-                DeviceType.tablet,
+                DeviceScreenType.tablet,
                 Size(context.screenWidth, context.screenHeight),
               ),
             );
@@ -31,7 +31,9 @@ class ResponsiveBuilder extends StatelessWidget {
             SizingInformation(
               orientation,
               Size(constraints.maxWidth, constraints.maxHeight),
-              context.isMobile ? DeviceType.mobile : DeviceType.tablet,
+              context.isMobile
+                  ? DeviceScreenType.mobile
+                  : DeviceScreenType.tablet,
               Size(context.screenWidth, context.screenHeight),
             ),
           );
