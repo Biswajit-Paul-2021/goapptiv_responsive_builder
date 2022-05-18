@@ -3,30 +3,16 @@ import 'package:goapptiv_responsive_builder/src/mediaquery_extensions.dart';
 import 'package:goapptiv_responsive_builder/src/sizing_info.dart';
 
 class ResponsiveBuilder extends StatelessWidget {
-  const ResponsiveBuilder({Key? key, required this.mobile, this.tablet})
-      : super(key: key);
+  const ResponsiveBuilder({Key? key, required this.child}) : super(key: key);
   final Widget Function(
-      BuildContext context, SizingInformation sizingInformation) mobile;
-  final Widget Function(
-      BuildContext context, SizingInformation sizingInformation)? tablet;
+      BuildContext context, SizingInformation sizingInformation) child;
 
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(builder: (context, orientation) {
       return LayoutBuilder(
         builder: (context, constraints) {
-          if (!context.isMobile && tablet != null) {
-            return tablet!(
-              context,
-              SizingInformation(
-                orientation,
-                Size(constraints.maxWidth, constraints.maxHeight),
-                DeviceScreenType.tablet,
-                Size(context.screenWidth, context.screenHeight),
-              ),
-            );
-          }
-          return mobile(
+          return child(
             context,
             SizingInformation(
               orientation,

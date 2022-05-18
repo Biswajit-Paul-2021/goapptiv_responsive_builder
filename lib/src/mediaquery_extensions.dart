@@ -13,6 +13,12 @@ extension CustomExtension on BuildContext {
   /// returns the total width of the screen
   double get screenWidth => MediaQuery.of(this).size.width;
 
+  /// returns the text scale factor
+  double get textScaleFactor => MediaQuery.of(this).textScaleFactor;
+
+  /// returns the MediaQueryData object for legacy data
+  MediaQueryData get mediaQuery => MediaQuery.of(this);
+
   // /// returns total horizontal padding
   // double get horizontalPadding =>
   //     MediaQuery.of(this).viewPadding.bottom +
@@ -28,9 +34,6 @@ extension CustomExtension on BuildContext {
 
   // /// returns the passed percentage width
   // double getWidth(double percentage) => (screenWidth * percentage) / 100;
-
-  // /// returns the MediaQueryData object for legacy data
-  // MediaQueryData get mediaQuery => MediaQuery.of(this);
 
   // Object? get arguments => ModalRoute.of(this)!.settings.arguments;
 
