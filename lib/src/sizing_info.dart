@@ -19,4 +19,11 @@ class SizingInformation {
     this._deviceType,
     this._deviceScreenSize,
   );
+
+  @override
+  String toString() {
+    return 'SizingInformation(_orientation: $_orientation, _localWidgetsize:'
+        ' $_localWidgetsize, _deviceType: $_deviceType, '
+        '_deviceScreenSize: $_deviceScreenSize)';
+  }
 }
